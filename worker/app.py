@@ -52,6 +52,12 @@ async def shutdown():
     await db.close()
 
 
+# Root
+@app.get("/")
+async def root():
+    return {"service": "yubilab-worker", "version": "2.0", "status": "running", "docs": "/docs"}
+
+
 # Health
 @app.get("/health")
 async def health():
